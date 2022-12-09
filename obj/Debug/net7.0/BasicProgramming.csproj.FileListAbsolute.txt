@@ -1,0 +1,15 @@
+/Users/calvinmoyana/Downloads/BasicProgramming/bin/Debug/net7.0/BasicProgramming
+/Users/calvinmoyana/Downloads/BasicProgramming/bin/Debug/net7.0/BasicProgramming.deps.json
+/Users/calvinmoyana/Downloads/BasicProgramming/bin/Debug/net7.0/BasicProgramming.runtimeconfig.json
+/Users/calvinmoyana/Downloads/BasicProgramming/bin/Debug/net7.0/BasicProgramming.dll
+/Users/calvinmoyana/Downloads/BasicProgramming/bin/Debug/net7.0/BasicProgramming.pdb
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.csproj.AssemblyReference.cache
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.GeneratedMSBuildEditorConfig.editorconfig
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.AssemblyInfoInputs.cache
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.AssemblyInfo.cs
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.csproj.CoreCompileInputs.cache
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.dll
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/refint/BasicProgramming.dll
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.pdb
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/BasicProgramming.genruntimeconfig.cache
+/Users/calvinmoyana/Downloads/BasicProgramming/obj/Debug/net7.0/ref/BasicProgramming.dll
