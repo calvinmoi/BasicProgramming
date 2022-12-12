@@ -89,14 +89,13 @@ namespace BasicProgramming
     public class sistemPesan
     {
       int? input2;
-      int total;
-      string? lanjut;
-      string? alamat;
-      int jumlah;
-      int totalMakan;
-      static int[] hargaCtrg = { 23000, 44000, 115000, 228000, 460000, 910000 };
-      int i;
-      int uangPembayaran;
+      string? alamat, lanjut, tglPesan, noHP;
+      int[] hargaCtrg = { 23000, 44000, 115000, 228000, 460000, 910000 };
+      int i, uPembayaran, uKembali, totalMakan, jumlah, total;
+      string[] jenisCtrg = {"Catering Harian Makan Sendiri", "Catering Harian Makan Berdua",
+      "Catering Mingguan Makan Sendiri", "Catering Mingguan Makan Berdua",
+      "Catering Bulanan Makna Sendiri", "Catering Bulanan Makan Berdua"};
+
 
       // method cetak struk
       public void cetakStruk()
@@ -106,6 +105,7 @@ namespace BasicProgramming
         Console.WriteLine("Kamu telah memesan catering untuk " + jumlah + " hari.\n");
         Console.WriteLine("Total makan untuk " + totalMakan + "x makan.\n");
         Console.WriteLine("Alamat pengantaran catering " + alamat);
+        Console.WriteLine("\nPesanan untuk tanggal  " + tglPesan);
         Console.WriteLine("\nTotalnya jadi : " + "Rp." + total + ",00\n");
       }
 
@@ -131,39 +131,27 @@ namespace BasicProgramming
           switch (input2)
           {
             case 1:
-              Console.WriteLine("\nKamu pesan Catering Harian Makan Sendiri\n");
-              i = 0;
-              mPesan(hargaCtrg, i);
+              mPesan(hargaCtrg, i = 0, jenisCtrg);
               break;
 
             case 2:
-              Console.WriteLine("\nKamu pesan Catering Harian Makan Berdua\n");
-              i = 1;
-              mPesan(hargaCtrg, i);
+              mPesan(hargaCtrg, i = 1, jenisCtrg);
               break;
 
             case 3:
-              Console.WriteLine("\nKamu pesan Catering Mingguan Makan Sendiri\n");
-              i = 2;
-              mPesan(hargaCtrg, i);
+              mPesan(hargaCtrg, i = 2, jenisCtrg);
               break;
 
             case 4:
-              Console.WriteLine("\nKamu pesan Catering Mingguan Makan Berdua\n");
-              i = 3;
-              mPesan(hargaCtrg, i);
+              mPesan(hargaCtrg, i = 3, jenisCtrg);
               break;
 
             case 5:
-              Console.WriteLine("\nKamu pesan Catering Bulanan Makan Sendiri\n");
-              i = 4;
-              mPesan(hargaCtrg, i);
+              mPesan(hargaCtrg, i = 4, jenisCtrg);
               break;
 
             case 6:
-              Console.WriteLine("\nKamu pesan Catering Bulanan Makan Berdua\n");
-              i = 5;
-              mPesan(hargaCtrg, i);
+              mPesan(hargaCtrg, i = 5, jenisCtrg);
               break;
 
             default:
@@ -172,16 +160,22 @@ namespace BasicProgramming
           }
 
           // method non void untuk masukkan data dan hitung total
-          int mPesan(int[] HargaCtrg, int index)
+          int mPesan(int[] HargaCtrg, int index, string[] jenisC)
           {
             hargaCtrg = HargaCtrg;
             i = index;
-            Console.Write("Pesan untuk berapa hari? ");
+            jenisCtrg = jenisC;
+            Console.WriteLine("\nKamu pesan " + jenisC[index]);
+            Console.Write("\nPesan untuk berapa hari? ");
             jumlah = Convert.ToInt32(Console.ReadLine());
             Console.Write("\nPesan untuk 1 kali makan atau 2 kali makan? ");
             totalMakan = Convert.ToInt32(Console.ReadLine());
             Console.Write("\nMasukkan alamat pengantaran catering : ");
             alamat = Console.ReadLine();
+            Console.Write("\nMasukkan tanggal pemesanan : ");
+            tglPesan = Console.ReadLine();
+            Console.Write("\nNo handphone  : ");
+            noHP = Console.ReadLine();
             if (totalMakan == 1)
             {
               total = total + jumlah * HargaCtrg[index];
@@ -212,7 +206,7 @@ namespace BasicProgramming
           }
           else if (lanjut == "y" || lanjut == "y")
           {
-            Console.WriteLine("\nDitunggu yah untuk cateringnya :D\n");
+            menuBayar();
             Environment.Exit(1);
           }
           else
@@ -224,14 +218,35 @@ namespace BasicProgramming
 
       public void menuBayar()
       {
+        string today = DateTime.Today.ToString("dd-MM-yyyy");
         Console.Clear();
         Console.WriteLine("==============================================");
         Console.WriteLine("                  Pembayaran                ");
         Console.WriteLine("==============================================\n");
         Console.WriteLine("Total harga pesanan anda : " + "Rp." + total + ",00\n");
         Console.Write("Masukkan uang pembayaran : ");
-        uangPembayaran = Convert.ToInt32(Console.ReadLine());
+        uPembayaran = Convert.ToInt32(Console.ReadLine());
 
+        if (uPembayaran == total)
+        {
+
+          Console.Clear();
+          Console.WriteLine("Invoice: \n");
+          Console.WriteLine("/Tanggal/MenuDipilih/TotalPembayaran/UangDibayar\n");
+          Console.WriteLine("/" + today + "/" + jenisCtrg[i] + "/" + total + "/" + uPembayaran + "/");
+        }
+        else if (uPembayaran > total)
+        {
+          uKembali = uPembayaran - total;
+          Console.Clear();
+          Console.WriteLine("Invoice: \n");
+          Console.WriteLine("/Tanggal/MenuDipilih/TotalPembayaran/UangDibayar/UangKembalian\n");
+          Console.WriteLine("/" + today + "/" + jenisCtrg[i] + "/" + total + "/" + uPembayaran + "/" + uKembali + "/\n");
+        }
+        else
+        {
+          Console.WriteLine("Sayang sekali uang kamu belum cukup :(");
+        }
       }
 
 
